@@ -33,7 +33,7 @@ a {
   text-decoration: none;
 }
 
-/* ---------- Shared animations ---------- */
+/* Shared animations */
 @keyframes floatA {
   0%, 100% { transform: translateY(0) rotate(-3deg); }
   50%      { transform: translateY(-14px) rotate(2deg); }
@@ -56,7 +56,7 @@ a {
   50%      { transform: translateY(-14px) rotate(0.6deg); }
 }
 
-/* ---------- Header ---------- */
+/* Header */
 .header {
   position: fixed;
   top: 0;
@@ -145,9 +145,7 @@ a {
   color: var(--cream);
 }
 
-/* =====================================================
-   HOME
-   ===================================================== */
+/* HOME*/
 .hm {
   position: relative;
   min-height: 100vh;
@@ -177,7 +175,7 @@ a {
   z-index: 2;
 }
 
-/* ---------- shared home text ---------- */
+/* shared home text  */
 .hm-tag {
   font-size: 0.85rem;
   letter-spacing: 3px;
@@ -249,7 +247,7 @@ a {
   background: var(--matcha-deep);
 }
 
-/* ---------- hero: floating frame (picture as background) ---------- */
+/* hero: floating frame (picture as background)  */
 .hm-hero {
   display: block;
   width: min(1100px, 100%);
@@ -295,7 +293,7 @@ a {
 .fl-sticker-1 { top: -22px; left: -16px; animation: floatA 5s ease-in-out infinite; }
 .fl-sticker-2 { bottom: -20px; right: -14px; animation: floatB 6s ease-in-out infinite; }
 
-/* inner: the picture is the background, no separate box */
+
 .fl-inner {
   position: relative;
   isolation: isolate;
@@ -311,7 +309,7 @@ a {
   background-size: cover;
   background-position: center;
 }
-/* slightly dark layer so the letters are readable */
+
 .fl-inner::before {
   content: "";
   position: absolute;
@@ -352,7 +350,7 @@ a {
   background: rgba(131, 143, 88, 0.6);
 }
 
-/* ---------- collage (below the frame) ---------- */
+/* collage (below the frame)  */
 .hm-collage {
   width: min(1100px, 100%);
   margin: 3.5rem auto 0;
@@ -531,7 +529,7 @@ a {
 .hm-steam-1 { right: 20%; }
 .hm-steam-2 { right: 14%; animation-delay: 1.4s; }
 
-/* ---------- quick link cards ---------- */
+/* quick link cards  */
 .hm-cards {
   width: min(1100px, 100%);
   margin: 4rem auto 0;
@@ -591,7 +589,7 @@ a {
 .hm-card-3 h3, .hm-card-3 b { color: var(--strawberry); }
 .hm-card-3 p { color: var(--cream); }
 
-/* ---------- quote ---------- */
+/*  quote  */
 .hm-quote {
   width: min(760px, 100%);
   margin: 3.5rem auto 0;
@@ -619,7 +617,7 @@ a {
   animation: floatA 4s ease-in-out infinite;
 }
 
-/* ---------- ribbon ---------- */
+/* ribbon */
 .hm-ribbon {
   width: min(1100px, 100%);
   margin: 3rem auto 0;
@@ -645,9 +643,7 @@ a {
   white-space: nowrap;
 }
 
-/* =====================================================
-   ABOUT
-   ===================================================== */
+/* ABOUT */
 .ab {
   position: relative;
   min-height: 100vh;
@@ -1011,9 +1007,7 @@ a {
   white-space: nowrap;
 }
 
-/* =====================================================
-   PORTFOLIO
-   ===================================================== */
+/* PORTFOLIO*/
 .pf {
   min-height: 100vh;
   display: flex;
@@ -1223,7 +1217,7 @@ a {
 .pf-card-a .pf-open { background: var(--matcha-deep); color: var(--strawberry); }
 .pf-card-b .pf-open { background: var(--strawberry); color: var(--matcha-deep); }
 
-/* ---------- project popup ---------- */
+/*  project popup  */
 .pm-overlay {
   position: fixed;
   inset: 0;
@@ -1368,9 +1362,7 @@ a {
 .pm-a .pm-link { background: var(--matcha-deep); color: var(--strawberry); }
 .pm-b .pm-link { background: var(--strawberry); color: var(--matcha-deep); }
 
-/* =====================================================
-   GALLERY
-   ===================================================== */
+/* GALLERY */
 .gl {
   position: relative;
   min-height: 100vh;
@@ -1581,9 +1573,7 @@ a {
   white-space: nowrap;
 }
 
-/* =====================================================
-   LOGIN / SIGN UP
-   ===================================================== */
+/* LOGIN / SIGN UP */
 .au {
   position: relative;
   min-height: 100vh;
@@ -1719,9 +1709,6 @@ a {
   text-decoration: underline;
 }
 
-/* =====================================================
-   RESPONSIVE (keep all media queries at the very bottom)
-   ===================================================== */
 @media (max-width: 900px) {
   /* Home */
   .hm { padding: 6rem 1.2rem 2rem; }
@@ -1763,7 +1750,7 @@ a {
 }
 
 @media (max-width: 600px) {
-  /* Header */
+ 
   .header {
     flex-wrap: wrap;
     gap: 0.6rem;
@@ -1788,7 +1775,7 @@ a {
   .pm-img { height: 180px; }
   .pm-title { font-size: 2.6rem; }
 
-  /* Portfolio */
+  
   .pf { padding: 5.5rem 1rem 2rem; }
   .pf-grid { grid-template-columns: 1fr; padding: 1.5rem; }
   .pf-img,
@@ -1821,7 +1808,7 @@ a {
   text-decoration: none;
 }
 
-/* Home page picture */
+
 .hm-photo {
   overflow: hidden;
 }
@@ -1833,7 +1820,7 @@ a {
   display: block;
 }
 
-/* About Me page picture */
+
 .ab-img {
   overflow: hidden;
 }
