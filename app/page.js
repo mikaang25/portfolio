@@ -8,14 +8,14 @@ export default function Home() {
       <span className="hm-blob hm-blob-1" />
       <span className="hm-blob hm-blob-2" />
 
-      {/* ---------- hero (floating frame) ---------- */}
+      
       <div className="hm-hero">
         <div className="fl">
           <span className="fl-tape" />
           <span className="fl-sticker fl-sticker-1">🍓</span>
           <span className="fl-sticker fl-sticker-2">🍵</span>
 
-          {/* inner: picture is the background, text sits on top */}
+          
           <div
             className="fl-inner"
             style={{ "--hero-img": "url(/hero.jpg)" }}
@@ -49,7 +49,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ---------- collage (below the frame) ---------- */}
+      
       <div className="hm-collage">
         <div className="hm-right">
           <span className="hm-steam hm-steam-1">~</span>
@@ -86,7 +86,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ---------- quick links ---------- */}
+     
       <div className="hm-cards">
         <Link href="/portfolio" className="hm-card hm-card-1">
           <span className="hm-card-icon">💻</span>
@@ -108,14 +108,14 @@ export default function Home() {
         </Link>
       </div>
 
-      {/* ---------- quote ---------- */}
+     
       <div className="hm-quote">
         <span>✦</span>
         <p>&ldquo;Slow days, warm cups and small wins.&rdquo;</p>
         <span>✦</span>
       </div>
 
-      {/* ---------- ribbon ---------- */}
+      
       <div className="hm-ribbon">
         <div className="hm-track">
           {[...words, ...words, ...words, ...words].map((w, i) => (
