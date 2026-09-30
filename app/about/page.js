@@ -9,7 +9,7 @@ export default function About() {
       <span className="ab-blob ab-blob-2" />
 
       <div className="ab-wrap">
-        {/* photo (top-left) */}
+        
         <div className="ab-photo">
           <span className="ab-tape" />
           <span className="ab-sticker ab-sticker-1">🍓</span>
@@ -23,7 +23,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* bio (beside photo) */}
+        
         <div className="ab-box ab-bio-box">
           <span className="ab-spark ab-spark-1">✦</span>S
           <span className="ab-spark ab-spark-2">✦</span>
@@ -43,7 +43,7 @@ As I continue my journey in Information Technology, I hope to expand my knowledg
           </Link>
         </div>
 
-        {/* currently (under photo) */}
+      
         <div className="ab-box ab-now">
           <h2 className="ab-label">CURRENTLY</h2>
           <ul>
@@ -53,7 +53,7 @@ As I continue my journey in Information Technology, I hope to expand my knowledg
           </ul>
         </div>
 
-        {/* skills */}
+        
         <div className="ab-box ab-skills">
           <h2 className="ab-label">SKILLS</h2>
           <div className="ab-chips">
@@ -62,7 +62,7 @@ As I continue my journey in Information Technology, I hope to expand my knowledg
           </div>
         </div>
 
-        {/* stats */}
+       
         <div className="ab-box ab-stats">
           <div className="ab-stat">
             <strong>1 and a Half</strong>
@@ -78,7 +78,7 @@ As I continue my journey in Information Technology, I hope to expand my knowledg
           </div>
         </div>
 
-        {/* trio (below About Me) */}
+        
         <div className="ab-trio">
           <div className="ab-box ab-hobby">
             <span className="ab-icon">🎨</span>
@@ -97,7 +97,7 @@ As I continue my journey in Information Technology, I hope to expand my knowledg
           </div>
         </div>
 
-        {/* scrolling ribbon */}
+        
         <div className="ab-ribbon">
           <div className="ab-track">
             {[...words, ...words, ...words, ...words].map((w, i) => (
