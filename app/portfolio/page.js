@@ -99,7 +99,7 @@ export default function Portfolio() {
           </div>
 
           <div className="pf-grid">
-            {/* top-left */}
+            
             <div className="pf-intro">
               <div className="pf-dot" />
               <h1 className="pf-title">
@@ -112,13 +112,13 @@ export default function Portfolio() {
               </p>
             </div>
 
-            {/* top-right */}
+            
             <Card p={a} />
 
-            {/* bottom-left */}
+            
             <Card p={b} />
 
-            {/* bottom-right */}
+            
             <div className="pf-text">
               <p>
                  is an innovative e-commerce website that recommends teddy bears based on the user’s current mood, creating a more personal and emotional shopping experience.
@@ -131,7 +131,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* ---------- popup ---------- */}
+     
       {open && (
         <div className="pm-overlay" onClick={() => setOpen(null)}>
           <div
