@@ -83,7 +83,7 @@ export default function Gallery() {
       <span className="gl-blob gl-blob-2" />
 
       <div className="gl-wrap">
-        {/* header */}
+        
         <div className="gl-head">
           <span className="gl-spark gl-spark-1">✦</span>
           <span className="gl-spark gl-spark-2">✦</span>
@@ -96,7 +96,7 @@ export default function Gallery() {
           </p>
         </div>
 
-        {/* filters */}
+        
         <div className="gl-filters">
           {filters.map((f) => (
             <button
@@ -109,7 +109,7 @@ export default function Gallery() {
           ))}
         </div>
 
-        {/* board */}
+        
         <div className="gl-grid">
           {shown.map((it, i) => (
             <article key={it.title} className={`gl-card gl-c${i % 3}`}>
@@ -130,7 +130,7 @@ export default function Gallery() {
           ))}
         </div>
 
-        {/* ribbon */}
+        
         <div className="gl-ribbon">
           <div className="gl-track">
             {[...words, ...words, ...words, ...words].map((w, i) => (
