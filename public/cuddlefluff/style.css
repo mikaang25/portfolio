@@ -1,0 +1,660 @@
+:root{
+    --pink:#ffb6c1;
+}
+
+*{
+    margin:0; padding:0;
+    box-sizing: border-box;
+    font-family: 'Verdana', Geneva, Tahoma, cursive;
+    outline:none; border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    overflow-x: hidden;
+}
+
+section{
+    padding:2rem 9%;
+}
+
+.heading{
+    text-align: center;
+    font-size: 4rem;
+    color: #a8d57e;
+    padding: 1rem;
+    margin: 2rem 0;
+    background: rgb(255, 51, 153,.05);
+}
+
+.heading span{
+    color: #a8d57e;
+}
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    border-radius: 3rem;
+    background: #a8d57e;
+    color: #fff;
+    padding: 1rem 2.5rem;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+
+.btn:hover{
+    background: var(--pink);
+}
+
+header{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    background: #f8cad0;
+    padding: 2rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 .5rem 1rem rbg(0,0,0,.1);
+}
+
+header .logo{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 3rem;
+    color: #a8d57e;
+    font-weight: bolder;
+}
+
+header .logo span{
+    color:#a8d57e
+}
+
+header .navbar a{
+    font-size: 2rem;
+    padding:0 1.5rem;
+    color: #fff;
+}
+
+header .navbar a:hover{
+    color:#a8d57e
+}
+
+header .icons a{
+    font-size: 2.5rem;
+    color: #fff;
+    margin-left: 1.5rem;
+}
+
+header .icons a:hover{
+    color:#a8d57e
+}
+
+header #toggler{
+    display: none;
+}
+
+header .fa-bars{
+    font-size: 3rem;
+    color: #fff;
+    border-radius: .5rem;
+    padding:.5rem 1.5rem;
+    cursor: pointer;
+    border:.1rem solid rgba(0,0,0,.3);
+    display: none;
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background: url(fluff.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.home .content{
+    max-width: 50rem;
+}
+
+.home .content h3{
+    font-size: 6rem;
+    color: #a8d57e;
+}
+
+.home .content span{
+    font-size: 2.5rem;
+    color: var(--pink);
+    padding:1rem 0;
+    line-height: 1.5;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.home .content p{
+    font-size: 1.5rem;
+    color: #4a4a4a;
+    padding:1rem 0;
+    line-height: 1.5;
+}
+
+.about{
+    background: url(background.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.about .row{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    padding-bottom: 3rem;
+}
+
+.about .row .video-container{
+    flex: 1 1 40rem;
+    position: relative;
+}
+
+.about .row .video-container video{
+    width:100%;
+    border: 1.5rem solid #fff;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    height: 100%;
+    object-fit: cover;
+}
+
+.about .row .video-container h3{
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    font-size: 3rem;
+    background: #fff;
+    width: 100%;
+    padding: 1rem 2rem;
+    text-align: center;
+    mix-blend-mode: screen;
+}
+
+/* ====== Force-centered, aligned team row (paste at end of your CSS) ====== */
+
+/* Center the whole team block inside its parent and limit its width so it stays grouped */
+.team {
+  display: flex !important;
+  justify-content: center !important; /* center the row as a group */
+  align-items: center !important;     /* make images, names, roles line up */
+  gap: 2.5rem !important;             /* spacing between members */
+  margin: 3rem auto 6rem auto !important; /* top / center horizontally / bottom */
+  max-width: 980px !important;        /* change larger/smaller if you want wider/narrower group */
+  padding: 0 1rem !important;
+  flex-wrap: nowrap !important;       /* keep them on a single row on desktop */
+}
+
+/* Make each member a fixed-sized column so they align to each other */
+.team-member {
+  flex: 0 0 160px !important;  /* fixed width for consistent alignment */
+  max-width: 160px !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* Image sizing to match the circle look and alignment */
+.team-image {
+  width: 150px !important;
+  height: 150px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  box-shadow: 0 6px 18px rgba(168, 213, 126, 0.4) !important;
+  margin-bottom: 0.8rem !important;
+}
+
+/* Name + role styling (keeps them aligned under each image) */
+.team-member h3 {
+  margin: 0.25rem 0 0.25rem 0 !important;
+  font-size: 1.25rem !important;
+  color: #a8d57e !important;
+  font-family: 'Pacifico', cursive !important;
+}
+
+.team-member p {
+  margin: 0 !important;
+  font-size: 0.85rem !important;
+  color: #726f62 !important;
+}
+
+.about .row .content{
+    flex: 1 1 40rem;
+}
+
+.about .row .content h3{
+    font-size: 3rem;
+    color: #a8d57e;
+}
+
+.about .row .content h2{
+    font-size: 3rem;
+    color: #a8d57e;
+}
+
+.about .row .content p{
+    font-size: 1.5rem;
+    color: #4a4a4a;
+    padding:.5rem 0;
+    padding-top: 1rem;
+    line-height: 1.5;
+}  
+
+
+
+.icons-container{
+    background: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.icons-container .icons{
+    background: url(background.png) no-repeat;
+    border: 1rem solid rgba(121, 226, 107, 0.1);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    flex: 1 1 25rem;
+}
+
+.icons-container .icons img{
+    height:5rem;
+    margin-right: 2rem;
+}
+
+.icons-container .icons h3{
+    color: #4a4a4a;
+    padding-bottom: .5rem;
+    font-size: 1.5rem;
+}
+
+.icons-container .icons span{
+    color: #4a4a4a;
+    font-size: 1.3rem;
+
+}
+
+.products{
+    background: url(background.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.products .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.products .box-container .box{
+    flex: 1 1 10rem;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    border-radius: .5rem; 
+    border: .1rem solid rgba(0,0,0,.1);
+    position: relative;
+}
+
+.products .box-container .box .discount{
+    position: absolute;
+    top: 1rem; left: 1rem;
+    padding: .7rem 1rem;
+    font-size: 2rem;
+    color: var(--pink);
+    background: rgba(255, 51, 153, .05);
+    z-index: 1;
+    border-radius: .5rem;
+}
+
+.products .box-container .box .image{
+    position: relative;
+    text-align: center;
+    padding-top: 2rem;
+    overflow: hidden;
+}
+
+.products .box-container .box .image img{
+    height: 25rem;
+}
+
+.products .box-container .box:hover .image img{
+    transform: scale(1.3);
+}
+
+.products .box-container .box .image .icons{
+    position: absolute;
+    bottom: -7rem; left:0; right:0;
+    display: flex;
+}
+
+.products .box-container .box:hover .image .icons{
+    bottom:0;
+}
+
+.products .box-container .box .image .icons a{
+    height: 5rem;
+    line-height: 5rem;
+    font-size: 1.3rem;
+    width: 50%;
+    background:var(--pink);
+    color: #fff;
+}
+
+.products .box-container .box .image .icons .cart-btn{
+    border-left: .1rem solid #fff7;
+    border-right: .1rem solid #fff7;
+    width: 100%;
+}
+
+.products .box-container .box .image .icons a:hover{
+    background: #a8d57e
+}
+
+.products .box-container .box .content{
+    padding: 2rem;
+    text-align: center;
+}
+
+.products .box-container .box .content h3{
+    font-size: 1.5rem;
+    color: #4a4a4a;
+}
+.products .box-container .box .content .price{
+    font-size: 2.3rem;
+    color: var(--pink);
+    font-weight:bolder;
+    padding-top: 1rem;
+}
+
+.products .box-container .box .content .price span{
+    font-size: 1.5rem;
+    color: #a8d57e;
+    font-weight: lighter;
+    text-decoration: line-through;
+}
+
+.review{
+    background: #fff;
+    background-size: cover;
+    background-position: center;
+}
+
+.review .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:1.5rem;
+}
+
+.review .box-container .box{
+    flex:1 1 30rem;
+    box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+    border-radius:.5rem;
+    padding:3rem 2rem;
+    position: relative;
+    border: .1rem solid rgba(0,0,0,.1);
+}
+
+.review .box-container .box .fa-quote-right{
+    position: absolute;
+    bottom:3rem; right:3rem;
+    font-size:6rem;
+    color: #eee;
+}
+
+.review .box-container .box .stars i{
+   color: var(--pink);
+   font-size: 3rem;
+}
+
+.review .box-container .box p{
+   color: #999;
+   font-size: 1.5rem;
+   line-height: 1.5;
+   padding-top: 2rem;
+}
+
+.review .box-container .box .user{
+    display: flex;
+    align-items: center;
+    padding-top: 2rem;
+     
+}
+.review .box-container .box .user img{
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
+}
+
+.review .box-container .box .user h3{
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.review .box-container .box .user span{
+    font-size: 1.5rem;
+    color: #999;
+}
+
+
+/* ---------------------------
+   CONTACT SECTION LAYOUT
+   --------------------------- */
+
+section.contact {
+  padding: 3rem 9%;
+}
+
+section.contact .row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 85px; /* slightly bigger */
+  margin-top: 3rem;
+}
+
+/* ---------------------------
+   FORM (EVEN BIGGER)
+   --------------------------- */
+
+section.contact form {
+  width: 100%;
+  max-width: 720px; /* bigger again */
+}
+
+section.contact form label {
+  font-size: 1.35rem; /* larger */
+  margin-bottom: 12px;
+  font-weight: 700;
+  color: #726f62;
+}
+
+section.contact form input,
+section.contact form textarea {
+  width: 100%;
+  padding: 22px 26px; /* bigger padding */
+  border: 3px solid #a8d57e;
+  border-radius: 26px; /* rounder and bigger */
+  font-size: 1.25rem; /* bigger text */
+  margin-bottom: 2.3rem;
+  box-sizing: border-box;
+}
+
+/* BUTTON — BIGGER THAN BEFORE */
+section.contact form button {
+  padding: 22px 48px; /* bigger */
+  font-size: 1.55rem; /* noticeably larger */
+  border-radius: 55px;
+  box-shadow: 0 14px 32px #a8d57e99;
+  background: #a8d57e;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+section.contact form button:hover {
+  box-shadow: 0 16px 36px #f8cad0bb;
+  background: #f8cad0;
+  color: #726f62;
+}
+
+
+/* ---------------------------
+   IMAGE — EVEN LARGER
+   --------------------------- */
+
+section.contact .image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section.contact .image img {
+  width: 100%;
+  max-width: 620px; /* MUCH bigger */
+  height: auto;
+}
+
+
+.footer .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.footer .box-container .box{
+    flex: 1 1 25rem;
+}
+
+.footer .box-container .box h3{
+    color: #333;
+    font-size: 2.5rem;
+    padding: 1rem 0;
+}
+
+.footer .box-container .box a{
+    display: block;
+    color:#4a4a4a;
+    font-size: 1.5rem;
+    padding:1rem 0;
+}
+
+.footer .box-container .box a:hover{
+    color: var(--pink);
+    text-decoration: underline;
+}
+
+.footer .box-container .box img{
+    margin-top: 1rem;
+}
+
+.footer p{
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    font-size: 2rem;
+    color: #4a4a4a;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/* media queries */
+@media (max-width:991px){
+    
+    html{
+    font-size: 55%;
+    }
+
+    header{
+    padding:2rem;
+    }
+
+    section{
+    padding: 2rem;
+    }
+
+    .home{
+    background-position: left;
+    }
+}
+
+@media (max-width:768px){
+    
+    header .fa-bars{
+        display: block;
+    }
+
+    header .navbar{
+        position: absolute;
+        top:100%; left:0; right:0;
+        background:#f8cad0;
+        border-top: .1rem solid rgba(0,0,0,.1);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    header #toggler:checked ~ .navbar{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    header .navbar a{
+        margin:1.5rem;
+        padding:1.5rem;
+        background: #ffb6c1;
+        border:.1rem solid rgba(0,0,0,.1);
+        display: block;
+    }
+
+    .home .content h3{
+        font-size: 5rem;
+    }
+
+    .home .content span{
+        font-size: 2.5rem;
+    }
+
+    .icons-container .icons h3{
+    font-size: 2rem;
+    }
+
+    .icons-container .icons span{
+    font-size: 1.7rem;
+
+    }
+
+
+}
+
+@media (max-width:450px){
+    
+    html{
+    font-size: 50%;
+    }
+    
+    .heading{
+        font-size: 3rem;
+    }
+
+}
+.box-logo {
+    display: flex;
+    align-items: center; /* optional: centers them vertically */
+    gap: 0px; /* optional: adds spacing between images */
+}

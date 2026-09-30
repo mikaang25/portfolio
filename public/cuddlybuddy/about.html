@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CuddlyBuddy | About</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #96c291;
+            --light-green: #f4f9f4;
+            --dark-text: #333;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-green);
+            color: var(--dark-text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- Navbar (Matching Home/Contact) --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-family: 'Fredoka One', cursive;
+            font-size: 24px;
+            color: #444;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        /* Pill shape for active page */
+        .nav-links .active {
+            background: var(--primary-green);
+            color: white !important;
+            padding: 5px 18px;
+            border-radius: 20px;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-sign {
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            background: var(--primary-green);
+            color: white;
+            transition: 0.3s;
+        }
+
+        /* --- Main Content --- */
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            flex-grow: 1;
+        }
+
+        /* Green Title Pill */
+        .section-title {
+            background: linear-gradient(to right, #96c291, #b8d8ba);
+            color: white;
+            display: inline-block;
+            padding: 15px 80px;
+            border-radius: 50px;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-family: 'Fredoka One', cursive;
+            box-shadow: 0 4px 15px rgba(150, 194, 145, 0.3);
+        }
+
+        .about-text {
+            text-align: left;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+        }
+
+        /* Mascot in the bottom right corner */
+        .mascot-about {
+            position: fixed;
+            bottom: 0;
+            right: 40px;
+            max-width: 220px;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .section-title { padding: 10px 40px; font-size: 1.8rem; }
+            .mascot-about { max-width: 150px; right: 10px; }
+            nav { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="home.html" class="logo">CuddlyBuddy</a>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <a href="CuddlyBuddy.html" class="btn-sign">Sign In</a>
+            <a href="signup.html" class="btn-sign">Sign Up</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="section-title">CuddlyBuddy Craft</h1>
+
+        <div class="about-text">
+            <p>CuddlyBuddy is an online teddy bear shop designed to provide comfort and emotional support through a mood-based shopping experience. Users can browse and select teddy bears that are recommended based on their current emotional state, making the shopping process more personalized and meaningful.</p>
+
+            <p>The shop features a simple, calming, and user-friendly interface that allows users to easily navigate available products without confusion. Each teddy bear is thoughtfully designed to represent comfort, warmth, and emotional reassurance, helping users feel a sense of relief and companionship while interacting with the platform. CuddlyBuddy also aims to create a more meaningful shopping experience by connecting products with the user's emotions. Instead of a typical online store, it focuses on providing items that match how users feel, making each selection more personal and supportive.</p>
+
+            <p>CuddlyBuddy combines online shopping with emotional care, offering not just teddy bears as products, but companions that aim to bring comfort, positivity, and a sense of emotional well-being to users.</p>
+        </div>
+
+        <img src="kerop.png" alt="Happy Mascot" class="mascot-about">
+    </div>
+
+    <script>
+        // Simple JS for navigation highlight behavior
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.nav-links a').forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap");
+
+    :root {
+      --page-bg: #e9ece8;
+      --panel-bg: #e4ebe3;
+      --card-bg: #ffffff;
+      --text: #252525;
+      --green-1: #8fc783;
+      --green-2: #b4dcae;
+      --green-3: #9dce92;
+      --green-4: #76be6f;
+      --green-5: #d3e6ce;
+      --shadow: rgba(31, 40, 31, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", "Segoe UI", Tahoma, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #f1f2f1 0%, #e7ebe7 100%);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 6px;
+    }
+
+    .app {
+      max-width: 1390px;
+      margin: 0 auto;
+      background: #f3f4f3;
+      border-radius: 3px;
+      padding: 8px 10px 12px;
+    }
+
+    .top-nav {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .brand {
+      font-size: 45px;
+      font-weight: 800;
+      color: #242424;
+      font-family: "Freckle Face", cursive;
+      letter-spacing: 0.4px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .nav-links,
+    .auth {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link,
+    .auth-link {
+      border: 0;
+      background: transparent;
+      border-radius: 999px;
+      padding: 8px 21px;
+      font-size: 19px;
+      font-weight: 800;
+      color: #2c2c2c;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .nav-link:hover,
+    .auth-link:hover {
+      transform: scale(1.06);
+    }
+
+    .nav-link.active,
+    .auth-link {
+      background: var(--green-3);
+      color: #f5fff4;
+    }
+
+    .main-panel {
+      background: var(--panel-bg);
+      border-radius: 3px;
+      padding: 10px;
+      min-height: 640px;
+    }
+
+    .hero-row {
+      display: grid;
+      grid-template-columns: 260px 1fr 88px;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .category {
+      border: 3px solid #c6d9c1;
+      background: #edf3ed;
+      border-radius: 48px;
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 45px;
+      font-weight: 900;
+      transition: transform 0.2s ease;
+    }
+
+    .category:hover {
+      transform: scale(1.02);
+    }
+
+    .banner {
+      border-radius: 24px;
+      min-height: 92px;
+      background: linear-gradient(90deg, var(--green-1), var(--green-2));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 18px 10px 22px;
+      transition: transform 0.2s ease;
+      overflow: hidden;
+    }
+
+    .banner:hover {
+      transform: scale(1.01);
+    }
+
+    .banner h2 {
+      color: #f3fff1;
+      font-size: 43px;
+      line-height: 1.12;
+      font-weight: 900;
+      margin-bottom: 6px;
+      max-width: 640px;
+    }
+
+    .start-btn {
+      border: 0;
+      border-radius: 999px;
+      background: #f8fff6;
+      color: #2d2d2d;
+      font-size: 31px;
+      font-weight: 800;
+      padding: 6px 15px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .start-btn:hover {
+      transform: scale(1.07);
+    }
+
+    .banner-art {
+      display: flex;
+      gap: 6px;
+      margin-right: 0;
+      align-items: flex-end;
+      flex: 0 0 auto;
+    }
+
+    .sticker {
+      width: 76px;
+      height: 76px;
+      border-radius: 18px;
+      border: 0;
+      background: transparent;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      text-align: center;
+      font-weight: 800;
+      color: #548c56;
+      padding: 0;
+    }
+
+    .sticker img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      mix-blend-mode: multiply;
+      filter: contrast(1.06) saturate(1.04);
+    }
+
+    .cart-bubble {
+      border: 0;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: #b1d7aa;
+      color: #f6fff4;
+      font-size: 23px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      position: relative;
+      z-index: 3;
+    }
+
+    .cart-bubble:hover {
+      transform: scale(1.1);
+    }
+
+    .section-title {
+      margin-left: 248px;
+      margin-bottom: 11px;
+      font-size: 52px;
+      line-height: 1;
+      font-weight: 900;
+      color: #222;
+    }
+
+    .grid {
+      margin-left: 248px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(235px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid #ebefeb;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 6px 10px var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: scale(1.035);
+      box-shadow: 0 10px 16px rgba(25, 35, 25, 0.24);
+    }
+
+    .img-placeholder {
+      width: 100%;
+      height: 174px;
+      border-radius: 10px;
+      border: 2px solid var(--green-5);
+      background: linear-gradient(145deg, #f4faf2, #e6f0e4);
+      display: block;
+      padding: 0;
+      overflow: hidden;
+      line-height: 0;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      user-select: none;
+      appearance: none;
+    }
+
+    .img-placeholder:hover {
+      transform: scale(1.03);
+    }
+
+    .img-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #f8fbf8;
+      border-radius: 8px;
+    }
+
+    .card-body {
+      padding: 10px 2px 4px;
+      background: #fff;
+      position: relative;
+      z-index: 1;
+    }
+
+    .product-name {
+      font-size: 13px;
+      font-weight: 800;
+      color: #3b3b3b;
+      margin-bottom: 6px;
+    }
+
+    .card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .price {
+      font-size: 33px;
+      font-weight: 900;
+      line-height: 1;
+      animation: neonRainbowText 6s ease-in-out infinite;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .buy {
+      border: 0;
+      border-radius: 999px;
+      background: #8fca84;
+      color: #f8fff6;
+      font-size: 11px;
+      font-weight: 900;
+      padding: 5px 11px;
+      text-transform: lowercase;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      animation: neonRainbowBg 6s ease-in-out infinite;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    }
+
+    .buy:hover {
+      transform: scale(1.08);
+    }
+
+    @keyframes neonRainbowText {
+      0% { color: #39ff8f; text-shadow: 0 0 7px rgba(57, 255, 143, 0.7); }
+      16% { color: #6bffde; text-shadow: 0 0 7px rgba(107, 255, 222, 0.7); }
+      32% { color: #7dff6a; text-shadow: 0 0 7px rgba(125, 255, 106, 0.7); }
+      48% { color: #4dffb8; text-shadow: 0 0 7px rgba(77, 255, 184, 0.7); }
+      64% { color: #9dff5e; text-shadow: 0 0 7px rgba(157, 255, 94, 0.7); }
+      80% { color: #57ffd2; text-shadow: 0 0 7px rgba(87, 255, 210, 0.7); }
+      100% { color: #39ff8f; text-shadow: 0 0 7px rgba(57, 255, 143, 0.7); }
+    }
+
+    @keyframes neonRainbowBg {
+      0% { background: #6eff8b; box-shadow: 0 0 9px rgba(110, 255, 139, 0.65); }
+      16% { background: #5fffd7; box-shadow: 0 0 9px rgba(95, 255, 215, 0.65); }
+      32% { background: #84ff6a; box-shadow: 0 0 9px rgba(132, 255, 106, 0.65); }
+      48% { background: #56ffc0; box-shadow: 0 0 9px rgba(86, 255, 192, 0.65); }
+      64% { background: #b6ff63; box-shadow: 0 0 9px rgba(182, 255, 99, 0.65); }
+      80% { background: #6dffd9; box-shadow: 0 0 9px rgba(109, 255, 217, 0.65); }
+      100% { background: #6eff8b; box-shadow: 0 0 9px rgba(110, 255, 139, 0.65); }
+    }
+
+    .add-btn {
+      border: 0;
+      background: transparent;
+      font-size: 24px;
+      color: #2d2d2d;
+      line-height: 1;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      position: relative;
+    }
+
+    .add-btn:hover {
+      transform: scale(1.16);
+    }
+
+    .toast {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      border-radius: 10px;
+      padding: 10px 14px;
+      background: #2c392c;
+      color: #f3fff1;
+      font-size: 13px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.2s ease;
+      pointer-events: none;
+      z-index: 12;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .image-viewer {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 20, 15, 0.54);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 15;
+    }
+
+    .image-viewer.show {
+      display: flex;
+    }
+
+    .viewer-card {
+      width: min(78vw, 560px);
+      aspect-ratio: 1 / 1;
+      border-radius: 18px;
+      border: 3px solid #d2e6cd;
+      background: linear-gradient(145deg, #f5fbf3, #dfebdc);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 18px;
+      color: #577f56;
+      font-weight: 900;
+      font-size: 28px;
+      transform: scale(0.9);
+      transition: transform 0.22s ease;
+      cursor: pointer;
+    }
+
+    .viewer-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 14px;
+    }
+
+    .image-viewer.show .viewer-card {
+      transform: scale(1);
+    }
+
+    .cart-panel {
+      position: fixed;
+      right: 12px;
+      top: 86px;
+      width: min(340px, 92vw);
+      background: #f7fbf6;
+      border: 2px solid #d2e6cd;
+      border-radius: 14px;
+      box-shadow: 0 12px 24px rgba(27, 37, 27, 0.23);
+      padding: 12px;
+      z-index: 11;
+      transform: translateY(-12px) scale(0.96);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.22s ease;
+    }
+
+    .cart-panel.show {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-panel h3 {
+      font-size: 24px;
+      margin-bottom: 8px;
+      color: #234023;
+    }
+
+    .cart-list {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+      max-height: 240px;
+      overflow: auto;
+      margin-bottom: 8px;
+    }
+
+    .cart-item {
+      background: #ffffff;
+      border: 1px solid #deedde;
+      border-radius: 8px;
+      padding: 7px 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #374b37;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cart-item button {
+      border: 0;
+      border-radius: 999px;
+      background: #f2dede;
+      color: #7a2f2f;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 9px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .cart-item button:hover {
+      transform: scale(1.07);
+    }
+
+    .cart-empty {
+      font-size: 13px;
+      font-weight: 700;
+      color: #607560;
+      background: #edf5ec;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .cart-total {
+      font-size: 15px;
+      font-weight: 900;
+      color: #203920;
+      text-align: right;
+    }
+
+    .fly-item {
+      position: fixed;
+      z-index: 20;
+      pointer-events: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #f6fff4;
+      border: 2px solid #a3d299;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+      transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.55s ease;
+    }
+
+    @media (max-width: 1320px) {
+      .section-title,
+      .grid {
+        margin-left: 0;
+      }
+
+      .hero-row {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+      }
+
+      .cart-bubble {
+        width: 100%;
+        height: 56px;
+        border-radius: 16px;
+      }
+
+      .cart-panel {
+        top: 150px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .top-nav {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links,
+      .auth {
+        justify-content: flex-start;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .brand {
+        font-size: 34px;
+      }
+
+      .section-title {
+        font-size: 42px;
+      }
+
+      .banner h2 {
+        font-size: 34px;
+      }
+
+      .category {
+        font-size: 41px;
+      }
+
+      .sticker {
+        width: 74px;
+        height: 74px;
+        font-size: 12px;
+      }
+
+      .viewer-card {
+        width: min(88vw, 430px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <nav class="top-nav">
+      <a class="brand" href="CuddlyBuddy.html">CuddlyBuddy</a>
+
+      <div class="nav-links">
+        <a class="nav-link" href="home.html">Home</a>
+        <a class="nav-link active" href="shop.html">Shop</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+        <a class="nav-link" href="about.html">About</a>
+      </div>
+
+      <div class="auth">
+        <a class="auth-link" href="CuddlyBuddy.html">Sign In</a>
+        <a class="auth-link" href="signup.html">Sign Up</a>
+      </div>
+    </nav>
+
+    <main class="main-panel">
+      <section class="hero-row">
+        <div class="category">Category</div>
+
+        <div class="banner">
+          <div>
+            <h2>Find you best Stickers for Yourself and Friend!</h2>
+            <button class="start-btn" type="button">Get Start</button>
+          </div>
+
+          <div class="banner-art" aria-hidden="true">
+            <div class="sticker"><img src="images/frogy1.jpg" alt="Frogy 1" /></div>
+            <div class="sticker"><img src="images/forgy2.jpg" alt="Forgy 2" /></div>
+          </div>
+        </div>
+
+        <button class="cart-bubble" id="cartBubble" title="Open cart">&#128722;0</button>
+      </section>
+
+      <h1 class="section-title">Best Selling!</h1>
+      <section class="grid" id="productGrid"></section>
+    </main>
+  </div>
+
+  <aside class="cart-panel" id="cartPanel">
+    <h3>Your Cart</h3>
+    <ul class="cart-list" id="cartList"></ul>
+    <p class="cart-total" id="cartTotal">Total: $0.00</p>
+  </aside>
+
+  <div class="image-viewer" id="imageViewer">
+    <div class="viewer-card" id="viewerCard"><img id="viewerImage" src="images/frog1.jpg" alt="Sticker preview" /></div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const products = [
+      { id: 1, name: "Bundle Popo's Sticker Set 1", price: 3.49, image: "images/frog1.jpg" },
+      { id: 2, name: "Bundle Popo's Sticker Set 2", price: 4.25, image: "images/frog2.jpg" },
+      { id: 3, name: "Bundle Popo's Sticker Set 3", price: 5.99, image: "images/frog3.jpg" },
+      { id: 4, name: "Bundle Popo's Sticker Set 4", price: 6.75, image: "images/frog4.jpg" },
+      { id: 5, name: "Bundle Popo's Sticker Set 5", price: 7.4, image: "images/frog5.jpg" },
+      { id: 6, name: "Bundle Popo's Sticker Set 6", price: 8.15, image: "images/frog6.jpg" }
+    ];
+
+    const cart = [];
+
+    const grid = document.getElementById("productGrid");
+    const toast = document.getElementById("toast");
+    const cartBubble = document.getElementById("cartBubble");
+    const cartPanel = document.getElementById("cartPanel");
+    const cartList = document.getElementById("cartList");
+    const cartTotal = document.getElementById("cartTotal");
+    const imageViewer = document.getElementById("imageViewer");
+    const viewerCard = document.getElementById("viewerCard");
+    const viewerImage = document.getElementById("viewerImage");
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 1300);
+    }
+
+    function updateCartBubble() {
+      cartBubble.innerHTML = `&#128722;${cart.length}`;
+      cartBubble.title = `Cart items: ${cart.length}`;
+    }
+
+    function renderCartList() {
+      if (!cart.length) {
+        cartList.innerHTML = '<li class="cart-empty">No items yet. Add a sticker set.</li>';
+        cartTotal.textContent = "Total: $0.00";
+        return;
+      }
+
+      cartList.innerHTML = cart
+        .map(
+          (item, index) => `
+            <li class="cart-item">
+              <span>${index + 1}. ${item.name}</span>
+              <div class="actions">
+                <strong>$${item.price.toFixed(2)}</strong>
+                <button type="button" data-remove-index="${index}">cancel</button>
+              </div>
+            </li>
+          `
+        )
+        .join("");
+
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    function animateToCart(fromButton) {
+      const startRect = fromButton.getBoundingClientRect();
+      const endRect = cartBubble.getBoundingClientRect();
+      const fly = document.createElement("div");
+      fly.className = "fly-item";
+      fly.innerHTML = "&#128722;";
+
+      fly.style.left = `${startRect.left + startRect.width / 2 - 14}px`;
+      fly.style.top = `${startRect.top + startRect.height / 2 - 14}px`;
+
+      document.body.appendChild(fly);
+
+      requestAnimationFrame(() => {
+        const moveX = endRect.left + endRect.width / 2 - (startRect.left + startRect.width / 2);
+        const moveY = endRect.top + endRect.height / 2 - (startRect.top + startRect.height / 2);
+        fly.style.transform = `translate(${moveX}px, ${moveY}px) scale(0.45)`;
+        fly.style.opacity = "0.2";
+      });
+
+      setTimeout(() => {
+        fly.remove();
+      }, 560);
+    }
+
+    function addToCart(product, fromButton) {
+      cart.push(product);
+      updateCartBubble();
+      renderCartList();
+      animateToCart(fromButton);
+      showToast(`${product.name} added to cart`);
+    }
+
+    function openImageViewer(product) {
+      viewerImage.src = product.image;
+      viewerImage.alt = `${product.name} Preview`;
+      imageViewer.classList.add("show");
+    }
+
+    function closeImageViewer() {
+      imageViewer.classList.remove("show");
+    }
+
+    function renderProducts() {
+      grid.innerHTML = products
+        .map(
+          (product) => `
+            <article class="card">
+              <button class="img-placeholder" type="button" data-image-id="${product.id}">
+                <img src="${product.image}" alt="${product.name}" />
+              </button>
+              <div class="card-body">
+                <p class="product-name">${product.name}</p>
+                <div class="card-bottom">
+                  <span class="price">$${product.price.toFixed(2)}</span>
+                  <div class="actions">
+                    <button class="buy" type="button">buy now</button>
+                    <button class="add-btn" type="button" data-id="${product.id}" title="Add to cart">&#128722;</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          `
+        )
+        .join("");
+    }
+
+    grid.addEventListener("click", (event) => {
+      const addButton = event.target.closest(".add-btn");
+      const buyButton = event.target.closest(".buy");
+      const imageButton = event.target.closest(".img-placeholder");
+
+      if (addButton) {
+        const id = Number(addButton.dataset.id);
+        const product = products.find((item) => item.id === id);
+        if (product) {
+          addToCart(product, addButton);
+        }
+        return;
+      }
+
+      if (buyButton) {
+        showToast("Checkout flow placeholder");
+        return;
+      }
+
+      if (imageButton) {
+        const id = Number(imageButton.dataset.imageId);
+        const product = products.find((item) => item.id === id);
+        if (product) {
+          openImageViewer(product);
+        }
+      }
+    });
+
+    cartBubble.addEventListener("click", () => {
+      cartPanel.classList.toggle("show");
+      if (cartPanel.classList.contains("show")) {
+        renderCartList();
+      }
+    });
+
+    cartList.addEventListener("click", (event) => {
+      const removeBtn = event.target.closest("button[data-remove-index]");
+      if (!removeBtn) {
+        return;
+      }
+
+      const index = Number(removeBtn.dataset.removeIndex);
+      if (Number.isNaN(index) || index < 0 || index >= cart.length) {
+        return;
+      }
+
+      const removed = cart.splice(index, 1)[0];
+      updateCartBubble();
+      renderCartList();
+      showToast(`${removed.name} removed from cart`);
+    });
+
+    imageViewer.addEventListener("click", () => {
+      closeImageViewer();
+    });
+
+    renderProducts();
+    updateCartBubble();
+    renderCartList();
+  </script>
+</body>
+</html>
